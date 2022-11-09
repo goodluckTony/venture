@@ -1,17 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>шибениця!</title>
-</head>
-<body>
-    <h1>Шибениця!</h1>
-    <canvas id="canvas" width="200" height="200"></canvas>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script src="jQuery 3.6.1 git build.js"></script>
-    <script src="app.js"></script>
-</body>
+    <title>шибениця!</title>
+
+    <style>
+
+    </style>
+  </head>
+  <body>
+    <h1>Шибениця!</h1>
+    <div>
+      <div>
+        <label for="">Підказка:</label>
+        <textarea class="hint" name="" id="" cols="30" rows="1" value="" readonly></textarea>
+        <br>
+        <label class="false-attempts" for="">К-сть невдалих спроб:</label>
+      </div>
+      <label for="">Загадане слово:</label><input class="hidden-words" type="text" value="" readonly>
+      <br>
+      <label for="">Обрана буква:</label><input class="guess" type="text" value="">
+      <div>
+        <button class="check-answer-button">OK</button>
+        <button class="recycle-word">New word</button>
+      </div>
+    </div>
+    <canvas id="canvas" width="200" height="200"></canvas>
+  <script src="jQuery 3.6.1 git build.js"></script>
+  <script src="app.js"></script>
+  </body>
 </html>

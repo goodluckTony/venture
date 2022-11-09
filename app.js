@@ -1,4 +1,54 @@
-var canvas = document.getElementById("canvas");
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+const words = ["програма", "макака", "прекрасний", "оладка"];
+const word = words[Math.floor(Math.random() * words.length)];
+
+let answerArray = [];
+
+for (let i = 0; i < word.length; i++) {
+  answerArray[i] = "_";
+};
+
+const remainingLetters = word.length;
+let failedShots = 0;
+
+const hiddenWords = document.querySelector(".hidden-words");
+const guess = document.querySelector(".guess").value;
+const hint = document.querySelector(".hint");
+
+
+
+const checkAnswerButton = document.querySelector(".check-answer-button");
+checkAnswerButton.addEventListener("click", () => {
+  hiddenWords.value = answerArray.join(" ");
+hint.value = "Вгадай букву.";
+  if (guess.length !== 1) {
+    hint.value = "Будь ласка, введи одну букву.";
+  } else {
+    var found = false;
+    // Оновлюємо стан гри
+    for (var j = 0; j < word.length; j++) {
+      if (word[j] === guess.value) {
+        answerArray[j] = guess.value;
+        found = true;
+        remainingLetters--;
+      }
+    };
+    if (!found) {
+      drawMan(failedShots);
+      failedShots++;
+    }
+    hiddenWords.value = answerArray.join(" ");
+  }
+  guess.value = "";
+
+});
+
+
+
+
+
+/* var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 
 // Створюємо масив з словами
@@ -65,7 +115,8 @@ function drawMan(failedShots) {
     ctx.lineTo(55, 140);
     ctx.stroke();
     alert("К-сть невдалих спроб: " + failedShots + " !");
-  } else if (failedShots == 3) {
+  } else if (failedShots === 3) {
+    ctx.strokeRect(40, 40, 30, 30);
     ctx.beginPath();
     ctx.moveTo(55, 72);
     ctx.lineTo(55, 140);
@@ -74,6 +125,7 @@ function drawMan(failedShots) {
     ctx.stroke();
     alert("К-сть невдалих спроб: " + failedShots + " !");
   } else if (failedShots === 4) {
+    ctx.strokeRect(40, 40, 30, 30);
     ctx.beginPath();
     ctx.moveTo(55, 72);
     ctx.lineTo(55, 140);
@@ -84,6 +136,7 @@ function drawMan(failedShots) {
     ctx.stroke();
     alert("К-сть невдалих спроб: " + failedShots + " !");
   } else if (failedShots === 5) {
+    ctx.strokeRect(40, 40, 30, 30);
     ctx.beginPath();
     ctx.moveTo(55, 72);
     ctx.lineTo(55, 140);
@@ -96,6 +149,7 @@ function drawMan(failedShots) {
     ctx.stroke();
     alert("К-сть невдалих спроб: " + failedShots + " !");
   } else if (failedShots === 6) {
+    ctx.strokeRect(40, 40, 30, 30);
     ctx.beginPath();
     ctx.moveTo(55, 72);
     ctx.lineTo(55, 140);
@@ -116,3 +170,10 @@ function drawMan(failedShots) {
 // Показуємо відповідь та вітаємо гравця
 alert(answerArray.join(" "));
 alert("Чудово! Було загадано слово " + word);
+ */
+/* const titleImgSeletion1 = document.querySelector(".title-right-selective-img-1");
+titleImgSeletion1.addEventListener("click", () => {
+document.querySelector(".title-right-active-img").src="img/bouquet_4.png";
+document.querySelector(".title-rpc-active").classList.remove("title-rpc-active");
+document.querySelector("#circle1").classList.add("title-rpc-active");
+}); */
